@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import axios from 'axios';
 
-function ListaPostConForm() {
+function Form() {
 
   const navigate = useNavigate();
   let protoPost = {
@@ -112,4 +112,4 @@ function ListaPostConForm() {
   )
 }
 
-export default ListaPostConForm
+export default Form
