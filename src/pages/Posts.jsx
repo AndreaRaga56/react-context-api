@@ -1,4 +1,5 @@
-// /* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import AppCard from "../components/AppCard"
@@ -15,7 +16,6 @@ function Posts() {
 
   let [listaPosts, setListaPosts] = useState([])
   let [listaTags, setListaTags] = useState([])
-  let [, setPost] = useState("")
   let [tagFiltro, setTagFiltro] = useState("all")
   let apiUrl = "http://localhost:3333"
 
@@ -27,8 +27,7 @@ function Posts() {
 
   const getPosts = () => {
     axios.get(`${apiUrl}/posts`).then((resp) => {
-      setListaPosts(resp.data.blogPosts);
-      setPost(protoPost);
+      setListaPosts(resp.data.blogPosts);      
     });
   };
 
