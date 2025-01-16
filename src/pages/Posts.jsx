@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import AppCard from "../components/AppCard"
+import GlobalContext from "../context/GlobalContext";
+
 
 function Posts() {
+  const {listaPosts, getPosts} = useContext(GlobalContext)
 
   let protoPost = {
     title: "",
@@ -14,7 +17,6 @@ function Posts() {
     // pubblicato: false
   }
 
-  let [listaPosts, setListaPosts] = useState([])
   let [listaTags, setListaTags] = useState([])
   let [tagFiltro, setTagFiltro] = useState("all")
   let apiUrl = "http://localhost:3333"
@@ -24,12 +26,6 @@ function Posts() {
     getPosts();
     getTags();
   }, []);
-
-  const getPosts = () => {
-    axios.get(`${apiUrl}/posts`).then((resp) => {
-      setListaPosts(resp.data.blogPosts);      
-    });
-  };
 
   const getTags = () => {
     axios.get(`${apiUrl}/posts`).then((resp) => {

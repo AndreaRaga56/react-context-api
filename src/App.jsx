@@ -22,7 +22,6 @@ function App() {
 
     const globalProviderValue = {
         listaPosts,
-        setListaPosts,
         getPosts
     }
     return (
