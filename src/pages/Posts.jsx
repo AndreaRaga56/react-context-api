@@ -15,7 +15,7 @@ function Posts() {
 
   let [listaPosts, setListaPosts] = useState([])
   let [listaTags, setListaTags] = useState([])
-  let [post, setPost] = useState("")
+  let [, setPost] = useState("")
   let [tagFiltro, setTagFiltro] = useState("all")
   let apiUrl = "http://localhost:3333"
 

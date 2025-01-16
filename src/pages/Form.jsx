@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function ListaPostConForm() {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   let protoPost = {
     title: "",
     image: "",
@@ -15,7 +15,7 @@ function ListaPostConForm() {
   }
 
   let [listaTags, setListaTags] = useState([])
-  let [post, setPost] = useState("")
+  let [post, setPost] = useState(protoPost)
   let apiUrl = "http://localhost:3333"
 
   useEffect(() => {
@@ -44,9 +44,9 @@ function ListaPostConForm() {
     axios.post(`${apiUrl}/posts`, post).then((resp) => { 
       setPost(protoPost);
       console.log(resp.data)     
-      navigate(`/Posts/${resp.data.id}`)
-    })    
-  }
+      navigate(`/Posts/${resp.data.id}`);
+    });    
+  };
 
   const printTags = listaTags.map((curTag, i) => {
     return (
